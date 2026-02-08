@@ -50,6 +50,7 @@
     ],
     "answerIndex": 1,
     "explanation": "Blameless post-mortems are critical to DevOps culture. When incidents occur, the focus is on understanding what went wrong and how to prevent it, not on blaming individuals. This psychological safety encourages teams to report issues quickly and share knowledge, leading to continuous improvement."
+  },
   {
     "id": "Q5",
     "topic": "Version Control Systems",
