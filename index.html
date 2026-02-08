@@ -25,21 +25,22 @@
         <section id="quizSection" class="section">
             <div class="quiz-header">
                 <h2 id="topicTitle"></h2>
-                <div class="progress-bar">
+                <div class="progress-bar" role="progressbar" aria-label="Quiz progress" aria-valuemin="0" aria-valuemax="100">
                     <div id="progressFill" class="progress-fill"></div>
                 </div>
                 <p id="questionCounter" class="question-counter"></p>
             </div>
 
-            <div class="quiz-content">
+            <form class="quiz-content" onsubmit="submitAnswer(); return false;">
                 <h3 id="questionText" class="question-text"></h3>
 
-                <div id="optionsContainer" class="options-container">
+                <fieldset id="optionsContainer" class="options-container">
+                    <legend style="display: none;">Answer options</legend>
                     <!-- Options will be populated by JavaScript -->
-                </div>
+                </fieldset>
 
-                <button id="submitBtn" class="btn btn-primary" onclick="submitAnswer()">Submit Answer</button>
-            </div>
+                <button type="submit" id="submitBtn" class="btn btn-primary">Submit Answer</button>
+            </form>
         </section>
 
         <!-- Feedback Screen -->
