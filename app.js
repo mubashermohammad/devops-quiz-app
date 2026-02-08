@@ -27,6 +27,27 @@ document.addEventListener('DOMContentLoaded', () => {
     setupKeyboardNavigation();
 });
 
+// Load quiz data from JSON file
+async function loadQuizData() {
+    try {
+        const response = await fetch('./data/questions.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        quizData = await response.json();
+        console.debug('Loaded quiz data:', quizData.length, 'questions');
+        populateTopics();
+    } catch (error) {
+        console.error('Error loading quiz data:', error);
+        const topicButtonsContainer = document.getElementById && document.getElementById('topicButtons');
+        if (topicButtonsContainer) {
+            topicButtonsContainer.innerHTML = '<div class="error">Failed to load quiz questions.</div>';
+        } else {
+            alert('Failed to load quiz questions. Please check the data/questions.json file.');
+        }
+    }
+}
+
 /**
  * Extract unique topics from quiz data and create clickable buttons for each
  *
@@ -83,11 +104,17 @@ function populateTopics() {
     // Create a button for each topic
     topics.forEach(topic => {
         const button = document.createElement('button');
+        button.type = 'button';
         button.className = 'topic-btn';
         button.textContent = topic;
         button.onclick = () => startQuiz(topic); // Start quiz when clicked
+        button.onkeydown = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); startQuiz(topic); } };
         topicButtonsContainer.appendChild(button);
     });
+
+    if (topics.length === 0) {
+        topicButtonsContainer.innerHTML = '<div class="note">No topics available.</div>';
+    }
 }
 
 /**
@@ -174,9 +201,6 @@ function displayQuestion() {
     })).sort(() => Math.random() - 0.5);
 
     shuffledOptions.forEach((option, index) => {
-        const label = document.createElement('label');
-        label.className = 'option-label';
-
         const input = document.createElement('input');
         input.type = 'radio';
         input.name = 'answer';
@@ -185,8 +209,13 @@ function displayQuestion() {
 
         const optionDiv = document.createElement('div');
         optionDiv.className = 'option';
+        optionDiv.tabIndex = 0;
+        optionDiv.setAttribute('role', 'button');
         optionDiv.appendChild(input);
         optionDiv.appendChild(document.createTextNode(option.text));
+        // make the full div clickable and keyboard-selectable
+        optionDiv.onclick = () => selectOption(option.originalIndex);
+        optionDiv.onkeydown = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectOption(option.originalIndex); } };
 
         optionsContainer.appendChild(optionDiv);
     });
