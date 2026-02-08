@@ -10,7 +10,7 @@
       "To automate all manual processes without planning"
     ],
     "answerIndex": 1,
-    "explanation": "DevOps promotes collaboration and integration between development and operations teams to deliver software faster and more reliably."
+    "explanation": "DevOps is fundamentally about collaboration and integration between development and operations teams. By breaking down traditional silos between these teams, DevOps enables faster software delivery, more reliable systems, and faster problem resolution. The key is collaboration, not replacing one team with another."
   },
   {
     "id": "Q2",
@@ -23,7 +23,7 @@
       "Avoiding communication between teams"
     ],
     "answerIndex": 1,
-    "explanation": "DevOps emphasizes continuous improvement, shared responsibility, and breaking down silos between teams."
+    "explanation": "DevOps emphasizes continuous improvement (Kaizen), shared responsibility for outcomes, and breaking down organizational silos. Rather than development and operations teams working in isolation, DevOps encourages shared goals, mutual accountability, and regular communication to deliver better software faster."
   },
   {
     "id": "Q3",
@@ -36,7 +36,7 @@
       "Developer productivity"
     ],
     "answerIndex": 2,
-    "explanation": "DevOps aims to reduce the time between code development and production deployment while minimizing failures."
+    "explanation": "DevOps focuses on reducing two critical metrics: (1) the time between code development and production deployment (time to market), and (2) the number of failed deployments and system failures. By automating processes and improving collaboration, DevOps enables more frequent, reliable deployments."
   },
   {
     "id": "Q4",
@@ -49,8 +49,7 @@
       "Minimizing communication between teams"
     ],
     "answerIndex": 1,
-    "explanation": "Blameless post-mortems foster a learning culture where teams improve processes instead of blaming individuals."
-  },
+    "explanation": "Blameless post-mortems are critical to DevOps culture. When incidents occur, the focus is on understanding what went wrong and how to prevent it, not on blaming individuals. This psychological safety encourages teams to report issues quickly and share knowledge, leading to continuous improvement."
   {
     "id": "Q5",
     "topic": "Version Control Systems",
@@ -62,7 +61,7 @@
       "To monitor production servers"
     ],
     "answerIndex": 1,
-    "explanation": "Version Control Systems track code changes, maintain history, and enable multiple developers to collaborate effectively."
+    "explanation": "Version Control Systems (VCS) serve three critical functions: (1) Track all code changes and their history, (2) Enable multiple developers to collaborate without overwriting each other's work, and (3) Provide the ability to revert to previous versions if needed. This is fundamental to professional software development."
   },
   {
     "id": "Q6",
@@ -75,7 +74,7 @@
       "Clearcase"
     ],
     "answerIndex": 2,
-    "explanation": "Git is a popular Distributed Version Control System where each developer has a complete copy of the repository."
+    "explanation": "Git is a popular Distributed Version Control System. Unlike centralized systems (like SVN), DVCS allows each developer to have a complete copy of the entire repository, including full history. This provides better offline support, faster operations, and more robust collaboration."
   },
   {
     "id": "Q7",
@@ -88,7 +87,7 @@
       "To speed up deployment"
     ],
     "answerIndex": 1,
-    "explanation": "Branches allow developers to work on features independently without affecting the main codebase."
+    "explanation": "A branch is a parallel development line that diverges from the main codebase. Branches allow developers to work on features independently without affecting the stable main branch. Multiple developers can work on different branches simultaneously, and branches are later merged back together."
   },
   {
     "id": "Q8",
@@ -101,7 +100,7 @@
       "A team meeting"
     ],
     "answerIndex": 1,
-    "explanation": "A commit is a snapshot of code changes with a descriptive message documenting what changed and why."
+    "explanation": "A commit is a checkpoint in your project's history. Each commit contains: (1) The actual code changes, (2) A descriptive message explaining what changed and why, (3) Metadata like author and timestamp. Good commits tell the story of your project's development."
   },
   {
     "id": "Q9",
