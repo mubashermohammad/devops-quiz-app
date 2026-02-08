@@ -10,6 +10,7 @@ let isAnswered = false;
 // Initialize the application
 document.addEventListener('DOMContentLoaded', () => {
     loadQuizData();
+    setupKeyboardNavigation();
 });
 
 // Load quiz data from JSON file
@@ -25,6 +26,29 @@ async function loadQuizData() {
         console.error('Error loading quiz data:', error);
         alert('Failed to load quiz questions. Please check the data/questions.json file.');
     }
+}
+
+// Setup keyboard navigation support
+function setupKeyboardNavigation() {
+    document.addEventListener('keydown', (e) => {
+        if (document.getElementById('quizSection').classList.contains('active')) {
+            const options = document.querySelectorAll('.option');
+            const currentSelected = Array.from(options).findIndex(opt => opt.classList.contains('selected'));
+            
+            if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+                e.preventDefault();
+                const nextIndex = (currentSelected + 1) % options.length;
+                selectOption(nextIndex);
+            } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+                e.preventDefault();
+                const prevIndex = currentSelected === 0 ? options.length - 1 : currentSelected - 1;
+                selectOption(prevIndex);
+            } else if (e.key === 'Enter') {
+                e.preventDefault();
+                submitAnswer();
+            }
+        }
+    });
 }
 
 // Populate topic selection buttons
