@@ -1,0 +1,314 @@
+[
+  {
+    "id": "Q1",
+    "topic": "The DevOps Culture",
+    "question": "What is the primary goal of DevOps?",
+    "options": [
+      "To replace developers with operations staff",
+      "To create a culture of collaboration between development and operations teams",
+      "To eliminate the need for testing",
+      "To automate all manual processes without planning"
+    ],
+    "answerIndex": 1,
+    "explanation": "DevOps promotes collaboration and integration between development and operations teams to deliver software faster and more reliably."
+  },
+  {
+    "id": "Q2",
+    "topic": "The DevOps Culture",
+    "question": "Which of the following is a core principle of DevOps?",
+    "options": [
+      "Siloed teams and separate responsibilities",
+      "Continuous improvement and shared responsibility",
+      "Manual processes and minimal automation",
+      "Avoiding communication between teams"
+    ],
+    "answerIndex": 1,
+    "explanation": "DevOps emphasizes continuous improvement, shared responsibility, and breaking down silos between teams."
+  },
+  {
+    "id": "Q3",
+    "topic": "The DevOps Culture",
+    "question": "What does DevOps aim to reduce in the software delivery process?",
+    "options": [
+      "Team morale",
+      "Code quality",
+      "Time to market and deployment failures",
+      "Developer productivity"
+    ],
+    "answerIndex": 2,
+    "explanation": "DevOps aims to reduce the time between code development and production deployment while minimizing failures."
+  },
+  {
+    "id": "Q4",
+    "topic": "The DevOps Culture",
+    "question": "Which practice is essential for building a DevOps culture?",
+    "options": [
+      "Blame culture when things go wrong",
+      "Blameless post-mortems and learning from failures",
+      "Keeping operational knowledge secret",
+      "Minimizing communication between teams"
+    ],
+    "answerIndex": 1,
+    "explanation": "Blameless post-mortems foster a learning culture where teams improve processes instead of blaming individuals."
+  },
+  {
+    "id": "Q5",
+    "topic": "Version Control Systems",
+    "question": "What is the primary purpose of a Version Control System?",
+    "options": [
+      "To track database changes only",
+      "To manage code changes, track history, and enable collaboration",
+      "To replace backup systems",
+      "To monitor production servers"
+    ],
+    "answerIndex": 1,
+    "explanation": "Version Control Systems track code changes, maintain history, and enable multiple developers to collaborate effectively."
+  },
+  {
+    "id": "Q6",
+    "topic": "Version Control Systems",
+    "question": "Which is a Distributed Version Control System (DVCS)?",
+    "options": [
+      "Subversion (SVN)",
+      "Perforce",
+      "Git",
+      "Clearcase"
+    ],
+    "answerIndex": 2,
+    "explanation": "Git is a popular Distributed Version Control System where each developer has a complete copy of the repository."
+  },
+  {
+    "id": "Q7",
+    "topic": "Version Control Systems",
+    "question": "What is a branch in Git used for?",
+    "options": [
+      "To back up your code",
+      "To create an independent line of development for features or fixes",
+      "To delete old commits",
+      "To speed up deployment"
+    ],
+    "answerIndex": 1,
+    "explanation": "Branches allow developers to work on features independently without affecting the main codebase."
+  },
+  {
+    "id": "Q8",
+    "topic": "Version Control Systems",
+    "question": "What does a 'commit' represent in version control?",
+    "options": [
+      "A bug in the code",
+      "A snapshot of changes with a message",
+      "A deployment to production",
+      "A team meeting"
+    ],
+    "answerIndex": 1,
+    "explanation": "A commit is a snapshot of code changes with a descriptive message documenting what changed and why."
+  },
+  {
+    "id": "Q9",
+    "topic": "Continuous Integration",
+    "question": "What is the primary goal of Continuous Integration (CI)?",
+    "options": [
+      "To eliminate the need for testing",
+      "To frequently integrate code changes and detect issues early",
+      "To replace developers with automation",
+      "To slow down the development process"
+    ],
+    "answerIndex": 1,
+    "explanation": "CI involves automatically building and testing code changes to detect integration issues early in development."
+  },
+  {
+    "id": "Q10",
+    "topic": "Continuous Integration",
+    "question": "Which tool is commonly used for Continuous Integration?",
+    "options": [
+      "Microsoft Word",
+      "Jenkins",
+      "Photoshop",
+      "Slack"
+    ],
+    "answerIndex": 1,
+    "explanation": "Jenkins is a popular open-source CI tool that automates building, testing, and deploying code."
+  },
+  {
+    "id": "Q11",
+    "topic": "Continuous Integration",
+    "question": "What happens in a CI pipeline?",
+    "options": [
+      "Code is manually deployed without testing",
+      "Code is automatically built, tested, and validated after each commit",
+      "Developers wait weeks to integrate their code",
+      "All changes are combined into one large commit"
+    ],
+    "answerIndex": 1,
+    "explanation": "A CI pipeline automatically builds, tests, and validates code after each commit to catch issues early."
+  },
+  {
+    "id": "Q12",
+    "topic": "Continuous Integration",
+    "question": "What is a unit test in CI?",
+    "options": [
+      "A test performed once a year",
+      "A test that validates a single unit of code in isolation",
+      "A test performed manually by QA",
+      "A test that requires human intervention"
+    ],
+    "answerIndex": 1,
+    "explanation": "Unit tests validate individual components of code to ensure they work correctly in isolation."
+  },
+  {
+    "id": "Q13",
+    "topic": "Continuous Delivery",
+    "question": "What is Continuous Delivery (CD)?",
+    "options": [
+      "Shipping physical products to customers",
+      "Automatically preparing code for production release with manual approval",
+      "Deleting old code versions",
+      "Delivering bad code quickly"
+    ],
+    "answerIndex": 1,
+    "explanation": "CD ensures code is always ready for production through automated testing and preparation, with manual approval for deployment."
+  },
+  {
+    "id": "Q14",
+    "topic": "Continuous Delivery",
+    "question": "How does Continuous Delivery differ from Continuous Deployment?",
+    "options": [
+      "CD is faster than Continuous Deployment",
+      "CD allows manual approval before production release; Continuous Deployment automates the release",
+      "They are the same thing",
+      "CD is only for small projects"
+    ],
+    "answerIndex": 1,
+    "explanation": "CD allows manual approval before deploying to production, while Continuous Deployment automatically releases to production."
+  },
+  {
+    "id": "Q15",
+    "topic": "Continuous Delivery",
+    "question": "What is a release pipeline in Continuous Delivery?",
+    "options": [
+      "A physical pipe used in factories",
+      "A sequence of automated steps to prepare and release software",
+      "A team meeting schedule",
+      "A database backup process"
+    ],
+    "answerIndex": 1,
+    "explanation": "A release pipeline is an automated sequence of steps that prepares code for production deployment."
+  },
+  {
+    "id": "Q16",
+    "topic": "Continuous Deployment",
+    "question": "What does Continuous Deployment involve?",
+    "options": [
+      "Deploying code once a year",
+      "Automatically releasing code to production after passing tests",
+      "Manually deploying each change",
+      "Deploying only on weekends"
+    ],
+    "answerIndex": 1,
+    "explanation": "Continuous Deployment automatically releases code to production whenever it passes all tests and checks."
+  },
+  {
+    "id": "Q17",
+    "topic": "Continuous Deployment",
+    "question": "What is a canary deployment?",
+    "options": [
+      "Deploying with a bird mascot",
+      "Gradually rolling out changes to a subset of users before full deployment",
+      "Deploying only on Wednesdays",
+      "Deploying without testing"
+    ],
+    "answerIndex": 1,
+    "explanation": "Canary deployment gradually rolls out changes to a small set of users to detect issues before full deployment."
+  },
+  {
+    "id": "Q18",
+    "topic": "Infrastructure as Code",
+    "question": "What is Infrastructure as Code (IaC)?",
+    "options": [
+      "Writing code that runs on infrastructure",
+      "Managing infrastructure through code and configuration files instead of manual processes",
+      "A programming language for infrastructure",
+      "A method to avoid using servers"
+    ],
+    "answerIndex": 1,
+    "explanation": "IaC treats infrastructure like code, allowing automated provisioning and management through code configuration."
+  },
+  {
+    "id": "Q19",
+    "topic": "Infrastructure as Code",
+    "question": "Which tool is used for Infrastructure as Code?",
+    "options": [
+      "Microsoft Paint",
+      "Terraform",
+      "VLC Media Player",
+      "Notepad"
+    ],
+    "answerIndex": 1,
+    "explanation": "Terraform is a popular IaC tool that allows you to define and manage infrastructure using code."
+  },
+  {
+    "id": "Q20",
+    "topic": "Infrastructure as Code",
+    "question": "What is an advantage of using Infrastructure as Code?",
+    "options": [
+      "Increases manual processes",
+      "Enables version control, repeatability, and consistency of infrastructure",
+      "Slows down deployment",
+      "Requires more manual intervention"
+    ],
+    "answerIndex": 1,
+    "explanation": "IaC enables version control, repeatable deployments, and consistent infrastructure across environments."
+  },
+  {
+    "id": "Q21",
+    "topic": "Continuous Integration",
+    "question": "What is the benefit of automated testing in CI?",
+    "options": [
+      "It eliminates the need for manual testing",
+      "It catches bugs early and ensures code quality automatically",
+      "It prevents developers from writing code",
+      "It makes the development process slower"
+    ],
+    "answerIndex": 1,
+    "explanation": "Automated testing in CI catches bugs early and provides quick feedback to developers about code quality."
+  },
+  {
+    "id": "Q22",
+    "topic": "Version Control Systems",
+    "question": "What is a pull request (PR)?",
+    "options": [
+      "A request to delete code",
+      "A request to merge code changes from one branch to another with review",
+      "A request to stop development",
+      "A request to hire developers"
+    ],
+    "answerIndex": 1,
+    "explanation": "A pull request is a mechanism to propose code changes and request review before merging to the main branch."
+  },
+  {
+    "id": "Q23",
+    "topic": "The DevOps Culture",
+    "question": "What is the significance of monitoring in DevOps?",
+    "options": [
+      "To spy on developers",
+      "To collect data on application performance and enable proactive issue detection",
+      "To increase costs",
+      "To avoid making changes"
+    ],
+    "answerIndex": 1,
+    "explanation": "Monitoring provides visibility into system performance and enables teams to detect and resolve issues proactively."
+  },
+  {
+    "id": "Q24",
+    "topic": "Continuous Delivery",
+    "question": "What is an artifact in the context of CD?",
+    "options": [
+      "An ancient historical item",
+      "A built and tested package of code ready for deployment",
+      "A meeting note",
+      "A security policy"
+    ],
+    "answerIndex": 1,
+    "explanation": "An artifact is a built and tested package (like a Docker image or compiled binary) ready for deployment."
+  }
+]
