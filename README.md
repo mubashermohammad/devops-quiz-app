@@ -15,15 +15,19 @@ The application itself is a **static web app** (no backend required) that tests 
 
 ## Features
 
-- **Topic Selection**: Users can choose from multiple DevOps topics to quiz on
-- **Interactive Questions**: Display one multiple-choice question at a time
-- **Immediate Feedback**: Instant correctness feedback with detailed explanations
-- **Progress Tracking**: Visual progress bar showing quiz completion percentage
-- **Score Calculation**: Final score with performance-based encouragement messages
-- **Question Randomization**: Questions appear in random order each quiz (variety)
-- **Option Shuffling**: Answer options are randomized to prevent learning patterns
-- **Responsive Design**: Works on desktop, tablet, and mobile devices
-- **No Backend Required**: Purely client-side static HTML/CSS/JavaScript application
+- Topic Selection Interface
+- 24 Question Database
+- Real-Time Feedback System
+- Score Calculation
+- Progress Tracking
+- Mobile Responsive Design
+- Zero Backend Requirements
+
+### User Interface
+- Topic selection with intuitive button layout
+- Interactive quiz display with one question at a time
+- Real-time answer feedback and explanations
+- Progress tracking with visual progress bar
 
 ## Technology Stack
 
