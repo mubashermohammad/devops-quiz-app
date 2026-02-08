@@ -24,43 +24,65 @@ let isAnswered = false;         // Boolean flag: has user submitted their answer
  */
 document.addEventListener('DOMContentLoaded', () => {
     loadQuizData();
+    setupKeyboardNavigation();
 });
-
-/**
- * Load quiz questions from the external JSON file
- * 
- * Process:
- * 1. Fetch the questions.json file
- * 2. Parse the JSON data
- * 3. Populate the topic selection buttons
- * 4. Display error if file cannot be loaded
- * 
- * Uses async/await for cleaner asynchronous code
- */
-async function loadQuizData() {
-    try {
-        // Fetch the questions file from the data folder
-        const response = await fetch('./data/questions.json');
-        
-        // Check if the fetch was successful
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+// Setup keyboard navigation support
+function setupKeyboardNavigation() {
+    document.addEventListener('keydown', (e) => {
+        if (document.getElementById('quizSection').classList.contains('active')) {
+            const options = document.querySelectorAll('.option');
+            const currentSelected = Array.from(options).findIndex(opt => opt.classList.contains('selected'));
+            
+            if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+                e.preventDefault();
+                const nextIndex = (currentSelected + 1) % options.length;
+                selectOption(nextIndex);
+            } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+                e.preventDefault();
+                const prevIndex = currentSelected === 0 ? options.length - 1 : currentSelected - 1;
+                selectOption(prevIndex);
+            } else if (e.key === 'Enter') {
+                e.preventDefault();
+                submitAnswer();
+            }
         }
-        
-        // Convert the response to JSON format
-        quizData = await response.json();
-        
-        // Extract unique topics and display them as buttons
-        populateTopics();
-    } catch (error) {
-        // Log error to browser console for debugging
-        console.error('Error loading quiz data:', error);
-        
-        // Display user-friendly error message
-        alert('Failed to load quiz questions. Please check the data/questions.json file.');
-    }
+    });
 }
 
+/**
+ * Extract unique topics from quiz data and create clickable buttons for each
+ *
+ * Process:
+ * 1. Get all unique topics from the question data
+ * 2. Sort topics alphabetically for consistent display
+ * 3. Create a button for each topic
+ * 4. Attach click handler to start quiz for that topic
+ */
+// Setup keyboard navigation support
+function setupKeyboardNavigation() {
+    document.addEventListener('keydown', (e) => {
+        if (document.getElementById('quizSection').classList.contains('active')) {
+            const options = document.querySelectorAll('.option');
+            const currentSelected = Array.from(options).findIndex(opt => opt.classList.contains('selected'));
+            
+            if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+                e.preventDefault();
+                const nextIndex = (currentSelected + 1) % options.length;
+                selectOption(nextIndex);
+            } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+                e.preventDefault();
+                const prevIndex = currentSelected === 0 ? options.length - 1 : currentSelected - 1;
+                selectOption(prevIndex);
+            } else if (e.key === 'Enter') {
+                e.preventDefault();
+                submitAnswer();
+            }
+        }
+    });
+}
+
+// Populate topic selection buttons
+=======
 /**
  * Extract unique topics from quiz data and create clickable buttons for each
  * 
@@ -70,6 +92,7 @@ async function loadQuizData() {
  * 3. Create a button for each topic
  * 4. Attach click handler to start quiz for that topic
  */
+>>>>>>> 1d52d762954e8dfef60ec044b75bc5237f2975af
 function populateTopics() {
     // Extract all unique topics using Set to eliminate duplicates
     const topicsSet = new Set(quizData.map(q => q.topic));
@@ -162,13 +185,6 @@ function displayQuestion() {
     document.getElementById('progressFill').style.width = progress + '%';
 
     // Display the question text
-    document.getElementById('questionText').textContent = question.question;
-
-    // Update progress bar
-    const progress = ((currentQuestionIndex) / topicQuestions.length) * 100;
-    document.getElementById('progressFill').style.width = progress + '%';
-
-    // Display question
     document.getElementById('questionText').textContent = question.question;
 
     // Display options
