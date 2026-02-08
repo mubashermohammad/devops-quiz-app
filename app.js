@@ -1,85 +1,168 @@
-// Quiz Application State
-let quizData = [];
-let currentTopic = null;
-let currentQuestionIndex = 0;
-let selectedAnswer = null;
-let score = 0;
-let topicQuestions = [];
-let isAnswered = false;
+/**
+ * DevOps Quiz Application - Main Logic Module
+ * 
+ * This module handles all quiz functionality including:
+ * - Loading questions from JSON data file
+ * - Managing quiz state and user progress
+ * - Displaying questions and handling answers
+ * - Calculating scores and providing feedback
+ */
 
-// Initialize the application
+// ========== APPLICATION STATE ==========
+// These variables track the current state of the quiz application
+let quizData = [];              // All questions loaded from questions.json
+let currentTopic = null;        // Currently selected DevOps topic
+let currentQuestionIndex = 0;   // Index of the current question being displayed
+let selectedAnswer = null;      // 0-based index of the answer selected by user
+let score = 0;                  // Number of correct answers
+let topicQuestions = [];        // Filter of questions for the current topic
+let isAnswered = false;         // Boolean flag: has user submitted their answer?
+
+/**
+ * Initialize the application when DOM is fully loaded
+ * This runs automatically when the page loads
+ */
 document.addEventListener('DOMContentLoaded', () => {
     loadQuizData();
 });
 
-// Load quiz data from JSON file
+/**
+ * Load quiz questions from the external JSON file
+ * 
+ * Process:
+ * 1. Fetch the questions.json file
+ * 2. Parse the JSON data
+ * 3. Populate the topic selection buttons
+ * 4. Display error if file cannot be loaded
+ * 
+ * Uses async/await for cleaner asynchronous code
+ */
 async function loadQuizData() {
     try {
+        // Fetch the questions file from the data folder
         const response = await fetch('./data/questions.json');
+        
+        // Check if the fetch was successful
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
+        
+        // Convert the response to JSON format
         quizData = await response.json();
+        
+        // Extract unique topics and display them as buttons
         populateTopics();
     } catch (error) {
+        // Log error to browser console for debugging
         console.error('Error loading quiz data:', error);
+        
+        // Display user-friendly error message
         alert('Failed to load quiz questions. Please check the data/questions.json file.');
     }
 }
 
-// Populate topic selection buttons
+/**
+ * Extract unique topics from quiz data and create clickable buttons for each
+ * 
+ * Process:
+ * 1. Get all unique topics from the question data
+ * 2. Sort topics alphabetically for consistent display
+ * 3. Create a button for each topic
+ * 4. Attach click handler to start quiz for that topic
+ */
 function populateTopics() {
+    // Extract all unique topics using Set to eliminate duplicates
     const topicsSet = new Set(quizData.map(q => q.topic));
+    
+    // Convert Set to Array and sort alphabetically
     const topics = Array.from(topicsSet).sort();
 
+    // Get the container element where buttons will be inserted
     const topicButtonsContainer = document.getElementById('topicButtons');
-    topicButtonsContainer.innerHTML = '';
+    topicButtonsContainer.innerHTML = ''; // Clear existing content
 
+    // Create a button for each topic
     topics.forEach(topic => {
         const button = document.createElement('button');
         button.className = 'topic-btn';
         button.textContent = topic;
-        button.onclick = () => startQuiz(topic);
+        button.onclick = () => startQuiz(topic); // Start quiz when clicked
         topicButtonsContainer.appendChild(button);
     });
 }
 
-// Start quiz for selected topic
+/**
+ * Initialize and start a quiz for the selected DevOps topic
+ * 
+ * @param {string} topic - The DevOps topic selected by the user
+ * 
+ * Process:
+ * 1. Filter all questions to only those matching the selected topic
+ * 2. Shuffle questions to randomize order (for variety)
+ * 3. Reset quiz state (score, answer index, etc)
+ * 4. Switch UI to display the first question
+ */
 function startQuiz(topic) {
+    // Set the current topic
     currentTopic = topic;
+    
+    // Filter questions to only those in the selected topic
     topicQuestions = quizData.filter(q => q.topic === topic);
 
+    // Validate that questions exist for this topic
     if (topicQuestions.length === 0) {
         alert('No questions available for this topic.');
         return;
     }
 
-    // Shuffle questions
+    // Randomize question order to improve quiz variety
+    // Math.random() - 0.5 creates a random sort comparable
     topicQuestions = topicQuestions.sort(() => Math.random() - 0.5);
 
-    currentQuestionIndex = 0;
-    score = 0;
-    selectedAnswer = null;
-    isAnswered = false;
+    // Reset quiz state variables for fresh quiz
+    currentQuestionIndex = 0;  // Start with first question
+    score = 0;                 // No correct answers yet
+    selectedAnswer = null;     // No answer selected
+    isAnswered = false;        // User hasn't submitted yet
 
-    // Switch to quiz section
+    // Display the quiz interface and load first question
     showSection('quizSection');
     displayQuestion();
 }
 
-// Display current question
+/**
+ * Display the current question with all its answer options
+ * 
+ * Process:
+ * 1. Check if quiz is complete (all questions answered)
+ * 2. Update progress bar and question counter
+ * 3. Display question text
+ * 4. Generate and display answer options (shuffled)
+ * 5. Allow user to select an answer
+ */
 function displayQuestion() {
+    // Check if all questions have been answered
     if (currentQuestionIndex >= topicQuestions.length) {
         showQuizComplete();
         return;
     }
 
+    // Get the current question object from the filtered list
     const question = topicQuestions[currentQuestionIndex];
 
-    // Update header
+    // Update the topic title at top of quiz
     document.getElementById('topicTitle').textContent = currentTopic;
+    
+    // Display progress: "Question 3 of 8"
     document.getElementById('questionCounter').textContent = 
         `Question ${currentQuestionIndex + 1} of ${topicQuestions.length}`;
+
+    // Update progress bar width based on completion percentage
+    const progress = ((currentQuestionIndex) / topicQuestions.length) * 100;
+    document.getElementById('progressFill').style.width = progress + '%';
+
+    // Display the question text
+    document.getElementById('questionText').textContent = question.question;
 
     // Update progress bar
     const progress = ((currentQuestionIndex) / topicQuestions.length) * 100;
