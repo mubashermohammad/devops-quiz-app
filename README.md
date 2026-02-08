@@ -15,15 +15,14 @@ The application itself is a **static web app** (no backend required) that tests 
 
 ## Features
 
-- **Topic Selection**: Users can choose from multiple DevOps topics to quiz on
-- **Interactive Questions**: Display one multiple-choice question at a time
-- **Immediate Feedback**: Instant correctness feedback with detailed explanations
-- **Progress Tracking**: Visual progress bar showing quiz completion percentage
-- **Score Calculation**: Final score with performance-based encouragement messages
-- **Question Randomization**: Questions appear in random order each quiz (variety)
-- **Option Shuffling**: Answer options are randomized to prevent learning patterns
-- **Responsive Design**: Works on desktop, tablet, and mobile devices
-- **No Backend Required**: Purely client-side static HTML/CSS/JavaScript application
+### Core Functionality
+- **Interactive Quiz Platform**: Engaging quiz interface for DevOps knowledge assessment
+- **Multi-Topic Support**: Questions spanning 6 different DevOps domains
+- **Dynamic Question Generation**: Questions shuffled for variety and better learning
+- **Real-Time Feedback**: Immediate answer validation with comprehensive explanations
+- **Performance Analytics**: Score tracking with personalized performance messages
+- **Responsive Interface**: Seamless experience across all devices (desktop, tablet, mobile)
+- **Pure Client-Side**: No backend or server requirements - works entirely in the browser
 
 ## Technology Stack
 
