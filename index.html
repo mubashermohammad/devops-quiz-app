@@ -33,8 +33,12 @@
                 <!-- Display current question number and total -->
                 <p id="questionCounter" class="question-counter"></p>
             </div>
+            <form class="quiz-content" onsubmit="submitAnswer(); return false;">
+                <h3 id="questionText" class="question-text"></h3>
 
-                <!-- Options will be populated by JavaScript -->
+                <fieldset id="optionsContainer" class="options-container">
+                    <legend style="display: none;">Answer options</legend>
+                    <!-- Options will be populated by JavaScript -->
                 </fieldset>
 
                 <button type="submit" id="submitBtn" class="btn btn-primary">Submit Answer</button>
